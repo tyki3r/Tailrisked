@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .signature-font {
+    font-family: 'Rock 3D', cursive, sans-serif;
+  }
+  .editorial-font {
+    font-family: 'Cinzel', 'Georgia', serif;
+  }
+  .serif-italic {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-style: italic;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+  }
+  .glass-card-gold {
+    background: rgba(212, 175, 55, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    backdrop-filter: blur(16px);
+  }
+  .accent-glow {
+    text-shadow: 0 0 24px rgba(212, 175, 55, 0.35);
+  }
+  .gold-glow-box {
+    box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.18);
+  }
+  .gold-glow-subtle {
+    box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.08);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}

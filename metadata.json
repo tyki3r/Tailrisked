@@ -1,0 +1,6 @@
+{
+  "name": "Tailrisked — Public Trading Journal & Discord Funnel",
+  "description": "Public trading journal by Tailrisked. Live trades, real-time updates, and macro outlook dispatches delivered on Discord.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
