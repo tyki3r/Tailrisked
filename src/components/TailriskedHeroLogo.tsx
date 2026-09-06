@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 
 interface TailriskedHeroLogoProps {
@@ -11,6 +11,7 @@ export const TailriskedHeroLogo: React.FC<TailriskedHeroLogoProps> = ({
   size = 'hero',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [imgError, setImgError] = useState(false);
 
   // Smooth 3D Tilt effect
   const mouseX = useMotionValue(0);
@@ -74,7 +75,7 @@ export const TailriskedHeroLogo: React.FC<TailriskedHeroLogoProps> = ({
       {/* Ambient gold glow backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[550px] h-[180px] bg-[#D4AF37]/8 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none -z-10" />
 
-      {/* Main 3D Tilted Hero Text matching bottom font */}
+      {/* Main 3D Tilted Hero with animated physics */}
       <motion.div
         style={{
           rotateX,
@@ -83,11 +84,22 @@ export const TailriskedHeroLogo: React.FC<TailriskedHeroLogoProps> = ({
         }}
         className="relative flex items-center justify-center cursor-default transition-transform duration-75 ease-out w-full"
       >
-        <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white font-['Rock_3D',_cursive,_sans-serif] tracking-wider text-center leading-none select-none drop-shadow-[0_4px_20px_rgba(212,175,55,0.22)] drop-shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all"
-        >
-          tailrisked
-        </h1>
+        {!imgError ? (
+          <img
+            src="/logo.png"
+            alt="tailrisked"
+            onError={() => setImgError(true)}
+            className="max-h-24 sm:max-h-32 md:max-h-40 w-auto object-contain select-none pointer-events-none drop-shadow-[0_4px_24px_rgba(212,175,55,0.22)]"
+          />
+        ) : null}
+
+        {imgError && (
+          <h1
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white font-['Rock_3D',_cursive,_sans-serif] tracking-wider text-center leading-none select-none drop-shadow-[0_4px_20px_rgba(212,175,55,0.22)] drop-shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all"
+          >
+            tailrisked
+          </h1>
+        )}
       </motion.div>
     </div>
   );
